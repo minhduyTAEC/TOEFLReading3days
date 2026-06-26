@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master TOEFL Reading in 3 Days — TAEC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #e03131;
+            --red-dark: #c92a2a;
+            --red-soft: #fff0f0;
+            --red-mid: #ffe0e0;
+            --navy: #0f1623;
+            --navy-mid: #1a2233;
+            --navy-light: #232e42;
+            --border: #2e3a52;
+            --text-main: #1a202c;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --cream: #fafaf8;
+            --blue-soft: #eff6ff;
+            --blue-border: #3b82f6;
+            --green: #166534;
+            --green-soft: #f0fdf4;
+            --green-border: #22c55e;
+            --wrong-soft: #fff1f2;
+            --wrong-border: #f43f5e;
+            --yellow-soft: #fffbeb;
+            --yellow-border: #f59e0b;
+            --purple-soft: #f5f3ff;
+            --purple-border: #8b5cf6;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy);
+            color: var(--text-main);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ======= SIDEBAR ======= */
+        .sidebar {
+            width: 290px;
+            min-width: 290px;
+            background: var(--navy-mid);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 22px 20px 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-badge {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .logo-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.25;
+        }
+
+        .logo-sub {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 6px;
+        }
+
+        /* Day section headers in TOC */
+        .toc-section-label {
+            padding: 14px 20px 6px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #475569;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .toc-list {
+            list-style: none;
+            overflow-y: auto;
+            flex: 1;
+            padding-bottom: 16px;
+        }
+
+        .toc-list::-webkit-scrollbar { width: 4px; }
+        .toc-list::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
+
+        .toc-item {
+            padding: 9px 20px 9px 18px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            color: #94a3b8;
+            border-left: 3px solid transparent;
+            transition: all 0.15s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .toc-item:hover { color: #e2e8f0; background: rgba(255,255,255,0.04); }
+
+        .toc-item.active {
+            color: #fff;
+            background: rgba(224, 49, 49, 0.12);
+            border-left-color: var(--red);
+            font-weight: 600;
+        }
+
+        /* ======= MAIN ======= */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 28px;
+            background: var(--navy-mid);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .course-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 0.5px;
+        }
+
+        .course-label span {
+            color: #e2e8f0;
+        }
+
+        .btn-guide {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid var(--border);
+            padding: 7px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-guide:hover { color: #fff; border-color: #475569; background: var(--navy-light); }
+
+        /* Progress bar — signature element */
+        .progress-bar-wrap {
+            height: 3px;
+            background: var(--navy-light);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--red), #ff6b6b);
+            transition: width 0.4s ease;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Slide card */
+        .slide-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: var(--cream);
+            margin: 18px 20px 0;
+            border-radius: 14px 14px 0 0;
+            box-shadow: 0 -4px 30px rgba(0,0,0,0.3);
+        }
+
+        .slide-content-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px 52px;
+        }
+
+        .slide-content-area::-webkit-scrollbar { width: 6px; }
+        .slide-content-area::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+        .slide { display: none; animation: fadeSlide 0.35s ease; }
+        .slide.active { display: block; }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ======= TYPOGRAPHY ======= */
+        .slide h1 {
+            color: var(--red-dark);
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .slide h2 {
+            color: var(--red-dark);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--red-mid);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .slide h3 {
+            color: #1e293b;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .slide p {
+            font-size: 16px;
+            line-height: 1.75;
+            margin-bottom: 14px;
+            color: #334155;
+        }
+
+        .slide ul, .slide ol {
+            margin-left: 22px;
+            margin-bottom: 14px;
+            font-size: 16px;
+            line-height: 1.75;
+            color: #334155;
+        }
+
+        .slide li { margin-bottom: 9px; }
+
+        .highlight { font-weight: 700; color: var(--red); }
+
+        /* Cards / boxes */
+        .card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .card-red { border-left: 5px solid var(--red); background: var(--red-soft); }
+        .card-blue { border-left: 5px solid var(--blue-border); background: var(--blue-soft); }
+        .card-yellow { border-left: 5px solid var(--yellow-border); background: var(--yellow-soft); }
+        .card-green { border-left: 5px solid var(--green-border); background: var(--green-soft); }
+        .card-purple { border-left: 5px solid var(--purple-border); background: var(--purple-soft); }
+
+        .card-center {
+            text-align: center;
+            border-left: none;
+            border-top: 4px solid var(--red);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+        }
+
+        th {
+            background: var(--red-dark);
+            color: #fff;
+            padding: 13px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        td {
+            border-bottom: 1px solid #f1f5f9;
+            padding: 13px 16px;
+            vertical-align: top;
+            color: #374151;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) td { background: #f8fafc; }
+        tr:hover td { background: #fffbeb; transition: background 0.2s; }
+
+        /* ======= PASSAGE ======= */
+        .passage-container {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 22px 28px;
+            margin-bottom: 20px;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 16px;
+            line-height: 1.85;
+            color: #1e293b;
+        }
+
+        /* ======= TWO-COL LAYOUT ======= */
+        .two-col {
+            display: flex;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .col-passage {
+            flex: 1.2;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 22px;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 15.5px;
+            line-height: 1.85;
+            color: #1e293b;
+            overflow-y: auto;
+            max-height: 52vh;
+        }
+
+        .col-question {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: 52vh;
+            padding-right: 4px;
+        }
+
+        .col-passage::-webkit-scrollbar,
+        .col-question::-webkit-scrollbar { width: 5px; }
+        .col-passage::-webkit-scrollbar-thumb,
+        .col-question::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+        /* ======= MCQ ======= */
+        .mcq-question {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 14px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+
+        .mcq-text {
+            font-weight: 700;
+            font-size: 15.5px;
+            color: #1e293b;
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .mcq-option {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 11px 16px;
+            margin-bottom: 9px;
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14.5px;
+            cursor: pointer;
+            transition: all 0.18s;
+            font-family: 'Inter', sans-serif;
+            color: #374151;
+            line-height: 1.45;
+        }
+
+        .mcq-option:hover:not(:disabled) {
+            background: var(--red-soft);
+            border-color: var(--red);
+            color: var(--red-dark);
+            transform: translateX(4px);
+        }
+
+        .mcq-option:disabled { cursor: not-allowed; }
+
+        .mcq-option.correct {
+            background: var(--green-soft);
+            border-color: var(--green-border);
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .mcq-option.wrong {
+            background: var(--wrong-soft);
+            border-color: var(--wrong-border);
+            color: #be123c;
+        }
+
+        .explanation {
+            margin-top: 14px;
+            padding: 14px 18px;
+            background: var(--blue-soft);
+            border-left: 4px solid var(--blue-border);
+            border-radius: 0 8px 8px 0;
+            font-size: 14.5px;
+            line-height: 1.65;
+            display: none;
+            color: #1e3a5f;
+        }
+
+        .explanation.show { display: block; animation: slideDown 0.3s ease; }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ======= BLANK BUTTONS ======= */
+        .blank-btn {
+            background: #fff7ed;
+            border: 2px dashed #f97316;
+            padding: 2px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            color: #c2410c;
+            font-weight: 700;
+            transition: all 0.18s;
+            margin: 0 3px;
+        }
+
+        .blank-btn:hover { background: #fed7aa; transform: scale(1.05); }
+
+        .blank-btn.revealed {
+            background: var(--green-soft);
+            border: 2px solid var(--green-border);
+            color: var(--green);
+            cursor: default;
+            transform: none;
+        }
+
+        .blank-explanation-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        /* ======= NAV BUTTONS ======= */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 28px;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .nav-btn {
+            padding: 9px 22px;
+            background: var(--text-main);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s, transform 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover:not(:disabled) { background: var(--red); transform: translateY(-1px); }
+        .nav-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+
+        .progress-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* ======= MODAL ======= */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.6);
+            display: none; align-items: center; justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 36px;
+            border-radius: 16px;
+            max-width: 520px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+        }
+
+        .close-modal {
+            position: absolute; top: 16px; right: 20px;
+            font-size: 26px; cursor: pointer;
+            color: #94a3b8; transition: color 0.2s;
+        }
+
+        .close-modal:hover { color: var(--red); }
+
+        .modal-content h2 {
+            color: var(--red-dark);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: none;
+            padding: 0;
+            display: block;
+        }
+
+        .guide-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .guide-item:last-child { border-bottom: none; margin-bottom: 0; }
+
+        .guide-icon {
+            font-size: 22px;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .guide-text { font-size: 15px; line-height: 1.65; color: #374151; }
+        .guide-text strong { color: var(--text-main); }
+
+        .btn-confirm {
+            display: block;
+            width: 100%;
+            margin-top: 24px;
+            padding: 11px;
+            background: var(--red);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s;
+        }
+
+        .btn-confirm:hover { background: var(--red-dark); }
+
+        /* ======= UTILITY ======= */
+        .center-content { text-align: center; }
+        .spacer { height: 40px; }
+        .two-cards { display: flex; gap: 16px; }
+        .two-cards .card { flex: 1; }
+
+        /* Day intro slides */
+        .day-splash {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+        }
+
+        .day-number {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 12px;
+        }
+
+        .day-title-big {
+            font-size: 40px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .day-subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 480px;
+            line-height: 1.6;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 22px;
+        }
+
+        .badge {
+            background: var(--red-soft);
+            color: var(--red-dark);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--red-mid);
+        }
+
+        /* Congrats slide */
+        .congrats-big {
+            font-size: 48px;
+            font-weight: 800;
+            color: #166534;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-badge">TAEC</div>
+            <div class="logo-title">Master TOEFL Reading<br>in 3 Days</div>
+            <div class="logo-sub">Biên soạn: Thầy Minh Duy</div>
+        </div>
+        <ul class="toc-list" id="toc-list"></ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+        <div class="top-bar">
+            <div class="course-label">Lộ trình <span>Chinh phục TOEFL Reading 2026</span></div>
+            <button class="btn-guide" onclick="openGuide()">📖 Hướng dẫn</button>
+        </div>
+        <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progress-fill" style="width: 2%"></div>
+        </div>
+
+        <div class="slide-wrapper">
+            <div class="slide-content-area" id="slides-container">
+
+                <!-- =========== SLIDE 1 =========== -->
+                <div class="slide" data-title="1. Giới thiệu khóa học">
+                    <div class="day-splash">
+                        <div class="day-number">TAEC</div>
+                        <div class="day-title-big">🚀 Master TOEFL Reading<br>in 3 Days</div>
+                        <div class="day-subtitle">Lộ trình bứt phá điểm số với cấu trúc đề thi <strong>TOEFL Reading 2026</strong> hoàn toàn mới — chỉ trong 3 ngày thôi, các em nhé!</div>
+                        <div class="badge-row">
+                            <div class="badge">🎯 Yêu cầu: ≥ A2</div>
+                            <div class="badge">⏱ 50 câu / 30 phút</div>
+                            <div class="badge">✍️ 3 dạng bài</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 2 =========== -->
+                <div class="slide" data-title="2. Tổng quan TOEFL 2026">
+                    <h2>🖼️ Nhìn chung về bài thi TOEFL Reading 2026</h2>
+                    <p>Trước khi bắt đầu, thầy muốn các em nắm thật chắc bức tranh toàn cảnh. Phần Reading trong TOEFL iBT 2026 có <strong>50 câu hỏi</strong>, thời gian làm là <strong>30 phút</strong> — tức là các em chỉ có khoảng <strong>36 giây cho mỗi câu</strong>.</p>
+                    <div class="card card-red">
+                        <h3 style="margin-top:0;">⚡ Tốc độ là yếu tố sống còn</h3>
+                        <p style="margin-bottom:0;">Thầy biết nhiều em có thể trả lời đúng nếu được thêm thời gian — nhưng đề thi không cho phép điều đó. Vì vậy, mục tiêu trong 3 ngày này không chỉ là "học cho đúng", mà là <strong>học cho nhanh và chắc</strong>.</p>
+                    </div>
+                    <p>Phần Reading chia làm <strong>3 dạng bài</strong>, mỗi dạng có chiến thuật riêng mà thầy sẽ chia sẻ từng bước trong khóa này.</p>
+                </div>
+
+                <!-- =========== SLIDE 3 =========== -->
+                <div class="slide" data-title="3. Cơ chế thi Adaptive">
+                    <h2>🔄 Cơ chế Adaptive — Bài thi "thông minh" hoạt động thế nào?</h2>
+                    <p>Đây là điểm các em cần hiểu kỹ! Bài thi TOEFL 2026 dùng cơ chế <strong>Adaptive</strong> — nghĩa là đề thi sẽ tự điều chỉnh độ khó dựa trên kết quả làm bài của em.</p>
+                    <div class="card card-blue">
+                        <h3 style="margin-top:0;">💡 Cụ thể như thế này:</h3>
+                        <p>Bài thi chia làm <strong>2 phần (module)</strong>. Kết quả của em ở phần 1 sẽ quyết định phần 2 sẽ dễ hay khó hơn.</p>
+                        <p style="margin-bottom:0;"><strong>➡️ Nếu em thấy phần 2 bỗng dưng khó hơn hẳn — đó là tin vui!</strong> Có nghĩa là em đã làm rất tốt ở phần 1. Đừng hoảng, hãy bình tĩnh tiếp tục nhé.</p>
+                    </div>
+                    <p>Hai phần có cùng dạng bài, chỉ khác nhau ở <strong>độ khó của từ ngữ</strong>. Hiểu được điều này, em sẽ không bị mất bình tĩnh khi làm bài thật.</p>
+                </div>
+
+                <!-- =========== SLIDE 4 =========== -->
+                <div class="slide" data-title="4. Tài nguyên luyện tập">
+                    <h2>🌐 Luyện tập thêm ở đâu? — Miễn phí luôn!</h2>
+                    <p>Lý thuyết trong 3 ngày này sẽ là nền tảng, nhưng để kỹ năng thực sự vào máu, các em cần <strong>cày thêm bài tập</strong> mỗi ngày. Thầy gợi ý hai nền tảng miễn phí rất chất:</p>
+                    <div class="two-cards">
+                        <div class="card card-green center-content">
+                            <h3 style="color:#166534; margin-top:0;">🌿 Nền tảng 1</h3>
+                            <p style="font-size:18px; font-weight:700; color:#166534; margin-bottom:0;">englishaidol.com</p>
+                        </div>
+                        <div class="card card-purple center-content">
+                            <h3 style="color:#6d28d9; margin-top:0;">✨ Nền tảng 2</h3>
+                            <p style="font-size:18px; font-weight:700; color:#6d28d9; margin-bottom:0;">estudyme.com</p>
+                        </div>
+                    </div>
+                    <p>Hai trang này có rất nhiều đề luyện theo đúng format mới — thầy khuyến khích các em lên đó làm thêm sau mỗi buổi học nhé!</p>
+                </div>
+
+                <!-- =========== SLIDE 5 =========== -->
+                <div class="slide" data-title="5. Cấu trúc: Complete the Words">
+                    <h2>🧩 Dạng 1: Complete the Words</h2>
+                    <table>
+                        <tr><th style="width:30%">Thông tin</th><th>Chi tiết</th></tr>
+                        <tr><td><strong>Số câu</strong></td><td>Nhiều nhất trong đề: <strong>25 câu</strong> — chiếm tới 50%!</td></tr>
+                        <tr><td><strong>Hình thức</strong></td><td>Một đoạn văn ngắn ~70–100 từ. Phần đầu nguyên vẹn, phần sau có một số từ bị "ăn mất đuôi". Em điền nốt các chữ cái còn thiếu để hoàn chỉnh từ. ✍️</td></tr>
+                        <tr><td><strong>Kỹ năng cần</strong></td><td>Phản xạ nhanh, nhận diện ngữ pháp tức thì, và vốn từ vựng linh hoạt theo ngữ cảnh. ⚡</td></tr>
+                    </table>
+                    <div class="card card-yellow">
+                        <p style="margin-bottom:0;">📌 Dạng này tưởng dễ nhưng lại tốn thời gian nhất nếu không luyện kỹ. Các em sẽ học chiến thuật cụ thể ở <strong>Day 1</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 6 =========== -->
+                <div class="slide" data-title="6. Cấu trúc: Read in Daily Life">
+                    <h2>📰 Dạng 2: Read in Daily Life</h2>
+                    <table>
+                        <tr><th style="width:30%">Thông tin</th><th>Chi tiết</th></tr>
+                        <tr><td><strong>Số câu</strong></td><td><strong>15 câu</strong> — chiếm 30% tổng điểm.</td></tr>
+                        <tr><td><strong>Hình thức</strong></td><td>Các văn bản đời thực rất gần gũi: poster, email, tin nhắn, trang web... Mỗi đoạn có 2–3 câu hỏi trắc nghiệm. 📱</td></tr>
+                        <tr><td><strong>Kỹ năng cần</strong></td><td>Đọc vị mục đích tác giả, tư duy suy luận, hiểu Idioms, và xử lý văn bản phi tuyến tính (thông tin không sắp xếp theo thứ tự từ trên xuống). 🔍</td></tr>
+                    </table>
+                    <p>Đây là dạng nhiều bẫy nhất! Thầy sẽ phân tích từng loại bẫy trong <strong>Day 2</strong>.</p>
+                </div>
+
+                <!-- =========== SLIDE 7 =========== -->
+                <div class="slide" data-title="7. Cấu trúc: Academic Passage">
+                    <h2>📚 Dạng 3: Read an Academic Passage</h2>
+                    <table>
+                        <tr><th style="width:30%">Thông tin</th><th>Chi tiết</th></tr>
+                        <tr><td><strong>Số câu</strong></td><td>Chỉ có <strong>10 câu</strong>, nhưng mang tính phân loại rất cao!</td></tr>
+                        <tr><td><strong>Hình thức</strong></td><td>Một trích đoạn học thuật ngắn về khoa học, lịch sử, xã hội... Câu hỏi xoay quanh suy luận, chi tiết và từ vựng. 🎓</td></tr>
+                        <tr><td><strong>Kỹ năng cần</strong></td><td>Nắm ý chính (Main Idea), logic suy luận, và giải mã cách lập luận của tác giả. 🧠</td></tr>
+                    </table>
+                    <div class="card card-blue">
+                        <p style="margin-bottom:0;">💡 Dạng này trông đáng sợ nhưng nếu nắm đúng phương pháp, em sẽ thấy nó rất có quy luật. <strong>Day 3</strong> sẽ tháo gỡ từng bước.</p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 8 =========== -->
+                <div class="slide" data-title="8. Lưu ý: Không được quay đầu">
+                    <h2>⚠️ Quy tắc quan trọng: Không thể quay lại!</h2>
+                    <div class="card card-red">
+                        <h3 style="margin-top:0;">🚫 "Một đi không trở lại"</h3>
+                        <p>Mỗi dạng bài có đồng hồ đếm ngược riêng. Khi đang làm một dạng, em <strong>có thể lướt lại trong nội bộ dạng đó</strong>.</p>
+                        <p>Nhưng <span class="highlight">một khi đã bấm sang dạng bài tiếp theo — cánh cửa đóng lại hoàn toàn.</span> Em không được phép quay lại dạng trước nữa.</p>
+                        <p style="margin-bottom:0;">💬 Vì vậy, chiến lược là: <strong>làm hết sức mỗi dạng trước khi bước sang dạng kế tiếp</strong>. Đừng bỏ qua câu nào với ý định "làm lại sau" nhé!</p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 9 =========== -->
+                <div class="slide" data-title="9. Thang điểm & thuật toán">
+                    <h2>📊 Thang điểm mới & Cách tính điểm</h2>
+                    <div class="card card-yellow">
+                        <h3 style="margin-top:0;">🌟 Band điểm 1–6</h3>
+                        <p style="margin-bottom:0;">TOEFL 2026 chuyển sang thang điểm từ <strong>1 đến 6</strong>, kèm bảng quy đổi sang thang cũ <strong>0–120</strong>. Các trường đại học sẽ xét dựa trên bảng này — em không cần lo, cứ tập trung làm đúng là được.</p>
+                    </div>
+                    <div class="card card-green">
+                        <h3 style="margin-top:0;">🧠 Nhắc lại về Adaptive</h3>
+                        <p style="margin-bottom:0;">Kết quả phần 1 của em quyết định độ khó phần 2. Làm tốt phần 1 → gặp đề khó hơn ở phần 2 → điểm cao hơn. Đây là hệ thống công bằng, vì đề khó hơn đồng nghĩa điểm tối đa cũng cao hơn.</p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 10 =========== -->
+                <div class="slide" data-title="10. Chiến lược tốc độ">
+                    <h2>⏱️ Chiến lược tốc độ — Bí quyết không bị hết giờ</h2>
+                    <div class="card card-center card-red" style="padding:28px; margin-bottom:22px;">
+                        <div style="font-size:52px; font-weight:800; color:var(--red); line-height:1;">30s</div>
+                        <div style="font-size:17px; font-weight:600; color:#374151; margin-top:6px;">Thời gian lý tưởng cho <strong>mỗi câu</strong></div>
+                    </div>
+                    <p>Thầy biết 30 giây nghe có vẻ ngắn, nhưng đây là con số thực tế. Bí quyết không phải là "đọc nhanh hơn" — mà là <strong>"biết mình đang tìm gì"</strong> trước khi đọc.</p>
+                    <p>Trong từng dạng bài, thầy sẽ dạy em cách xác định thông tin mục tiêu trong vòng vài giây — khi đó 30s/câu sẽ không còn là thách thức nữa.</p>
+                </div>
+
+                <!-- =========== SLIDE 11 — DAY 1 SPLASH =========== -->
+                <div class="slide" data-title="11. Bắt đầu Day 1">
+                    <div class="day-splash">
+                        <div class="day-number">Day 1 / 3</div>
+                        <div class="day-title-big">🧩 Complete the Words</div>
+                        <div class="day-subtitle">Hôm nay thầy sẽ dạy em 2 chiến thuật then chốt: đọc hiểu <strong>ngữ cảnh</strong> và nhận diện <strong>ngữ pháp</strong>. Kết hợp hai thứ này lại, em sẽ giải được gần như mọi câu dạng này.</div>
+                        <div class="badge-row">
+                            <div class="badge">🧠 Ngữ cảnh</div>
+                            <div class="badge">📐 Ngữ pháp</div>
+                            <div class="badge">🔤 Hình thái từ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 12 =========== -->
+                <div class="slide" data-title="12. Lý thuyết: Đoán từ qua ngữ cảnh">
+                    <h2>🕵️ Chiến thuật 1: Tận dụng ngữ cảnh</h2>
+                    <p>Cấu trúc của dạng này rất cố định, em hãy ghi nhớ:</p>
+                    <ul>
+                        <li><strong>Câu đầu tiên luôn nguyên vẹn hoàn toàn.</strong> Đây là "mỏ vàng" — câu này cho em biết toàn bộ chủ đề của đoạn. Đọc kỹ câu này là bước đầu tiên và quan trọng nhất. 🔑</li>
+                        <li>Các câu tiếp theo sẽ có những từ bị "ăn mất đuôi". Nhiệm vụ của em là ghép lại cho đúng.</li>
+                        <li>Đề bài "tốt bụng" cho em biết trước <strong>bao nhiêu chữ cái còn thiếu</strong> thông qua số dấu gạch dưới. Đếm kỹ nhé! 😉</li>
+                    </ul>
+                    <div class="card card-blue">
+                        <p style="margin-bottom:0;">💡 <strong>Thầy gợi ý:</strong> Đọc câu đầu → xác định chủ đề → rồi mới điền từng ô trống. Đừng nhảy vào điền ngay mà chưa hiểu đoạn văn đang nói về gì!</p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 13 =========== -->
+                <div class="slide" data-title="13. Bí kíp bỏ túi">
+                    <h2>💡 Mẹo thực chiến & Kế hoạch luyện tập</h2>
+                    <div class="card card-red">
+                        <h3 style="margin-top:0;">🔑 Mẹo điền từ siêu nhanh</h3>
+                        <p style="margin-bottom:0;">Trước khi điền, hãy xác định <strong>danh từ</strong> và <strong>động từ chính</strong> của câu trước. Các từ nhỏ đi kèm như <em>the, in, a, an</em> sẽ gợi ý cho em đó là danh từ hay tính từ. Nắm được cái này, em sẽ thu hẹp đáp án rất nhanh!</p>
+                    </div>
+                    <div class="card card-yellow">
+                        <h3 style="margin-top:0;">📅 Chỉ tiêu hằng ngày</h3>
+                        <p style="margin-bottom:0;">Thầy đề nghị mỗi ngày các em tự luyện ít nhất <strong>3 đoạn văn</strong>, đặt đồng hồ <strong>30 giây/đoạn</strong>. Nghe có vẻ ít, nhưng làm đều đặn trong 2 tuần là khác hẳn đó!</p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 14 =========== -->
+                <div class="slide" data-title="14. Phân tích đoạn mẫu">
+                    <h2>🔍 Cùng thầy phân tích một đoạn mẫu</h2>
+                    <div class="passage-container" style="font-size:17px; line-height:2;">
+                        We know from drawings that have been preserved in caves for over 10,000 years that early humans performed dances as a group activity. We mi___ think th___ prehistoric <strong>peo_____</strong> concentrated on___ on ba___ survival. How____, it i_ clear fr___ the rec___ that <strong>dan____</strong> was important to them...
+                    </div>
+                    <h3>Thầy phân tích từng bước:</h3>
+                    <ol>
+                        <li><strong>Bước 1 — Đọc câu đầu:</strong> Từ khóa là <em>dances</em> và <em>early humans</em>. Đoạn văn đang nói về <strong>vai trò của nhảy múa với người tiền sử</strong>.</li>
+                        <li><strong>Bước 2 — Giải <code>peo_____</code>:</strong> Đi kèm "prehistoric" và làm tân ngữ → danh từ → chỉ có thể là <strong>people</strong>.</li>
+                        <li><strong>Bước 3 — Giải <code>dan____</code>:</strong> Sau "that", đứng làm chủ ngữ, liên quan đến nhảy múa → danh từ → <strong>dancing</strong>.</li>
+                    </ol>
+                </div>
+
+                <!-- =========== SLIDE 15 =========== -->
+                <div class="slide" data-title="15. Thực hành 1: Ngữ cảnh">
+                    <h2>🏋️ Thực hành 1: Thử tài đoán nghĩa qua ngữ cảnh</h2>
+                    <p><em>Nhấn vào từng ô màu cam đứt nét để lật mở đáp án và đọc phân tích của thầy nhé! 👇</em></p>
+                    <div class="passage-container" style="line-height:2.1;">
+                        When a new animal enters a forest, it can cause <button class="blank-btn" onclick="revealBlank('b1', 'unfamiliar', event)">unf _ _ _ _ _ _ _ _</button> problems that are completely unfamiliar to local wildlife. This poses <button class="blank-btn" onclick="revealBlank('b2', 'serious', event)">ser _ _ _ _ _</button> challenges for rangers tackling these dangerous threats. The local food <button class="blank-btn" onclick="revealBlank('b3', 'chain', event)">cha _ _</button> — the basic connection between plants and animals — suffers big changes, leading to bad results that harm native species. To prevent the forest from becoming completely <button class="blank-btn" onclick="revealBlank('b4', 'unfit', event)">unf _ _</button> and unsafe for local animals, governments must pass <button class="blank-btn" onclick="revealBlank('b5', 'strict', event)">str _ _ _</button>, tough laws to <button class="blank-btn" onclick="revealBlank('b6', 'stop', event)">sto _</button> the damage and block further impact. Protecting nature is not an <button class="blank-btn" onclick="revealBlank('b7', 'extra', event)">ext _ _</button> choice but a necessity, or a total collapse becomes <button class="blank-btn" onclick="revealBlank('b8', 'sure', event)">sur _</button> and impossible to avoid.
+                    </div>
+                    <div class="blank-explanation-container">
+                        <div id="b1-exp" class="explanation"><strong>🎯 unfamiliar</strong> (unf + 8 ký tự)<br>Manh mối nằm ngay trong câu: "...problems that are completely unfamiliar..." — đề bài tự giải thích nghĩa luôn cho em!</div>
+                        <div id="b2-exp" class="explanation"><strong>🎯 serious</strong> (ser + 5 ký tự)<br>"challenges" và "dangerous threats" đi kèm → chỉ sự nghiêm trọng, nguy hiểm → "serious" là từ chuẩn nhất.</div>
+                        <div id="b3-exp" class="explanation"><strong>🎯 chain</strong> (cha + 2 ký tự)<br>Phần giải thích trong ngoặc gạch ngang "—the basic connection between plants and animals—" chính là định nghĩa của "food chain".</div>
+                        <div id="b4-exp" class="explanation"><strong>🎯 unfit</strong> (unf + 2 ký tự)<br>Song song với "unsafe" → cần một từ có nghĩa tương tự, cùng tiền tố "un-" → "unfit" (không phù hợp).</div>
+                        <div id="b5-exp" class="explanation"><strong>🎯 strict</strong> (str + 3 ký tự)<br>Sau dấu phẩy có ", tough laws" — "tough" là từ đồng nghĩa giải thích trực tiếp → cần điền "strict".</div>
+                        <div id="b6-exp" class="explanation"><strong>🎯 stop</strong> (sto + 1 ký tự)<br>Hành động song song với "block" (ngăn chặn) → cần động từ có nghĩa tương tự → "stop".</div>
+                        <div id="b7-exp" class="explanation"><strong>🎯 extra</strong> (ext + 2 ký tự)<br>Cấu trúc đối lập: "not an ___ choice but a necessity" → điều gì không phải là điều cần thiết? → một lựa chọn "thêm vào" (extra).</div>
+                        <div id="b8-exp" class="explanation"><strong>🎯 sure</strong> (sur + 1 ký tự)<br>"impossible to avoid" ở sau là manh mối → điều gì không thể tránh khỏi thì tất nhiên là "chắc chắn" sẽ xảy ra → "sure".</div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 16 =========== -->
+                <div class="slide" data-title="16. Lý thuyết: Dấu hiệu ngữ pháp">
+                    <h2>🧱 Chiến thuật 2: Nhận diện ngữ pháp</h2>
+                    <p>Bên cạnh ngữ cảnh, có một cách "hack" rất hiệu quả mà nhiều em bỏ qua — đó là <strong>soi cấu trúc ngữ pháp</strong> xung quanh ô trống.</p>
+                    <div class="card card-red">
+                        <p style="margin-bottom:0;"><span class="highlight">Yêu cầu tối thiểu:</span> Em phải nhận diện được ngay lập tức đây là Danh từ (N), Động từ (V), Tính từ (Adj), hay Trạng từ (Adv). Chỉ cần xác định được điều đó, em đã loại được phần lớn phương án sai!</p>
+                    </div>
+                    <p>Đặc biệt chú ý đến: <strong>số ít / số nhiều, thì của động từ, thể bị động, so sánh hơn / nhất</strong>. Những chi tiết này sẽ giúp em điền chính xác 100%.</p>
+                </div>
+
+                <!-- =========== SLIDE 17 =========== -->
+                <div class="slide" data-title="17. Bảng dấu hiệu ngữ pháp (P.1)">
+                    <h2>📋 Bảng nhận diện ngữ pháp nhanh — Phần 1</h2>
+                    <table>
+                        <tr><th>Dấu hiệu nhận biết</th><th>Loại từ cần điền</th><th>Ví dụ</th><th>Đáp án</th></tr>
+                        <tr><td><strong>The ____ + động từ số ít</strong></td><td>Danh từ số ít (chủ ngữ)</td><td>"The de____ was cancelled."</td><td class="highlight">decision</td></tr>
+                        <tr><td><strong>Động từ + ____ số nhiều</strong></td><td>Danh từ số nhiều (tân ngữ)</td><td>"They gathered the doc____."</td><td class="highlight">documents</td></tr>
+                        <tr><td><strong>a / an + ____ + Danh từ</strong></td><td>Tính từ</td><td>"a beau____ garden"</td><td class="highlight">beautiful</td></tr>
+                        <tr><td><strong>Động từ + ____</strong> (cuối câu hoặc trước tính từ)</td><td>Trạng từ</td><td>"highly success____"</td><td class="highlight">successful</td></tr>
+                    </table>
+                </div>
+
+                <!-- =========== SLIDE 18 =========== -->
+                <div class="slide" data-title="18. Bảng dấu hiệu ngữ pháp (P.2)">
+                    <h2>📋 Bảng nhận diện ngữ pháp nhanh — Phần 2</h2>
+                    <table>
+                        <tr><th>Dấu hiệu nhận biết</th><th>Loại từ cần điền</th><th>Ví dụ</th><th>Đáp án</th></tr>
+                        <tr><td><strong>more + ____ + than</strong></td><td>Tính từ dài (so sánh hơn)</td><td>"more comfor____ than"</td><td class="highlight">comfortable</td></tr>
+                        <tr><td><strong>has / have + ____</strong></td><td>Quá khứ phân từ (thì hoàn thành)</td><td>"has fin____ the task"</td><td class="highlight">finished</td></tr>
+                        <tr><td><strong>was / were + ____ + by</strong></td><td>Quá khứ phân từ (bị động)</td><td>"was dama____ by them"</td><td class="highlight">damaged</td></tr>
+                        <tr><td><strong>Every + Danh từ + ____</strong></td><td>Động từ số ít (Every luôn là số ít!)</td><td>"Every tree mat____"</td><td class="highlight">matters</td></tr>
+                    </table>
+                </div>
+
+                <!-- =========== SLIDE 19 =========== -->
+                <div class="slide" data-title="19. Thực hành 2: Ngữ pháp">
+                    <h2>🏋️ Thực hành 2: Vận dụng ngữ pháp để điền từ</h2>
+                    <p><em>Áp dụng những gì vừa học, em nhấn vào từng ô để kiểm tra đáp án nhé! 👇</em></p>
+                    <div class="passage-container" style="line-height:2.2;">
+                        The Amazon Rainforest plays an <button class="blank-btn" onclick="revealBlank('c1', 'important', event)">imp _ _ _ _ _ _ _</button> role in stabilizing the global climate. Millions of unique plants <button class="blank-btn" onclick="revealBlank('c2', 'live', event)">liv _</button> in this dense jungle. If human activity continues to <button class="blank-btn" onclick="revealBlank('c3', 'destroy', event)">des _ _ _ _</button> the trees, the entire region will suffer. Logging has already caused destruction in many areas. Deforestation changes the local environment <button class="blank-btn" onclick="revealBlank('c4', 'quickly', event)">qui _ _ _ _ _</button>, moving faster than scientists expected. Local animals are losing <button class="blank-btn" onclick="revealBlank('c5', 'their', event)">the _ _</button> homes every single day. A dedicated scientist <button class="blank-btn" onclick="revealBlank('c6', 'studies', event)">stu _ _ _ _</button> these environmental changes to find solutions. Right now, international groups are trying to protect the remaining land. Hopefully, strict laws will <button class="blank-btn" onclick="revealBlank('c7', 'save', event)">sav _</button> the forest before it is too late. Every single tree <button class="blank-btn" onclick="revealBlank('c8', 'matters', event)">mat _ _ _ _</button> to the survival of our planet.
+                    </div>
+                    <div class="blank-explanation-container">
+                        <div id="c1-exp" class="explanation"><strong>🎯 important</strong><br>Kẹp giữa mạo từ "an" và danh từ "role" → đây là vị trí của tính từ. Hơn nữa, "an" chỉ đi với nguyên âm → từ bắt đầu bằng nguyên âm "i" → "important".</div>
+                        <div id="c2-exp" class="explanation"><strong>🎯 live</strong><br>Chủ ngữ "Millions of unique plants" là số nhiều → động từ hiện tại đơn giữ nguyên mẫu, không thêm "s".</div>
+                        <div id="c3-exp" class="explanation"><strong>🎯 destroy</strong><br>Cấu trúc "continues to + V-nguyên thể" → sau "to" luôn là động từ nguyên mẫu.</div>
+                        <div id="c4-exp" class="explanation"><strong>🎯 quickly</strong><br>Vị trí cuối câu, bổ nghĩa cho động từ "changes" → cần Trạng từ (Adverb), mang đuôi "-ly".</div>
+                        <div id="c5-exp" class="explanation"><strong>🎯 their</strong><br>Đứng trước danh từ "homes", thay thế cho chủ ngữ số nhiều "Local animals" → tính từ sở hữu số nhiều → "their".</div>
+                        <div id="c6-exp" class="explanation"><strong>🎯 studies</strong><br>Chủ ngữ "A dedicated scientist" số ít → động từ thêm "s/es". "Study" đổi y → i + es = "studies".</div>
+                        <div id="c7-exp" class="explanation"><strong>🎯 save</strong><br>Sau trợ động từ "will" → luôn dùng động từ nguyên mẫu (V-bare).</div>
+                        <div id="c8-exp" class="explanation"><strong>🎯 matters</strong><br>"Every + danh từ" luôn là chủ ngữ số ÍT — quy tắc nhiều em hay quên! → động từ phải thêm "s" → "matters".</div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 20 — DAY 1 END =========== -->
+                <div class="slide" data-title="20. Tổng kết Day 1">
+                    <div class="day-splash">
+                        <div class="day-number">Kết thúc Day 1</div>
+                        <div class="day-title-big" style="color:#166534;">🎉 Xuất sắc!</div>
+                        <div class="day-subtitle">Em vừa nắm được 2 chiến thuật cốt lõi của dạng Complete the Words. Để kỹ năng này thực sự vào máu, đừng quên luyện thêm nhé!</div>
+                        <div class="badge-row">
+                            <div class="badge" style="background:var(--green-soft); color:#166534; border-color:#bbf7d0;">✅ Ngữ cảnh</div>
+                            <div class="badge" style="background:var(--green-soft); color:#166534; border-color:#bbf7d0;">✅ Ngữ pháp</div>
+                        </div>
+                        <p style="margin-top:24px; color:var(--text-muted);">Luyện thêm tại <strong style="color:var(--red);">englishaidol.com</strong> hoặc <strong style="color:var(--red);">estudyme.com</strong></p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 21 — DAY 2 SPLASH =========== -->
+                <div class="slide" data-title="21. Bắt đầu Day 2">
+                    <div class="day-splash">
+                        <div class="day-number">Day 2 / 3</div>
+                        <div class="day-title-big">📰 Read in Daily Life</div>
+                        <div class="day-subtitle">Hôm nay chúng ta chinh phục dạng bài "đời thực" — từ email, poster, đến tin nhắn và biển thông báo. Thầy sẽ dạy em cách đọc vị mục đích tác giả và giải mã Idioms.</div>
+                        <div class="badge-row">
+                            <div class="badge">🎯 Mục đích tác giả</div>
+                            <div class="badge">🗣️ Idioms</div>
+                            <div class="badge">⚡ Scanning</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 22 =========== -->
+                <div class="slide" data-title="22. Đặc điểm văn bản đời thường">
+                    <h2>🛒 Tổng quan: Read in Daily Life</h2>
+                    <p>Dạng bài này rất gần gũi với cuộc sống — em sẽ đọc những văn bản mà người ta thực sự dùng hằng ngày:</p>
+                    <ul>
+                        <li><strong>Rất ngắn:</strong> Chỉ từ 15 đến 150 từ — em có rất ít thời gian, phải đọc thật nhanh!</li>
+                        <li><strong>Đa dạng thể loại:</strong> Poster quảng cáo, email, SMS, thực đơn, form đăng ký, hóa đơn...</li>
+                        <li><strong>Mỗi đoạn: 2–3 câu hỏi trắc nghiệm.</strong></li>
+                    </ul>
+                    <div class="card card-red">
+                        <p style="margin-bottom:0; font-size:17px;"><strong>Mục tiêu tối thượng:</strong> Xác định được "tác giả viết đoạn này để làm gì?" — và dùng kỹ năng <strong>Scanning</strong> để chộp ngay thông tin cần thiết. 🦅</p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 23 =========== -->
+                <div class="slide" data-title="23. Dấu hiệu mục đích (P.1)">
+                    <h2>🎯 Đọc vị mục đích tác giả — Phần 1</h2>
+                    <table>
+                        <tr><th>Loại văn bản</th><th>Câu hỏi thường gặp</th><th>Cách tìm đáp án</th><th>Ví dụ</th></tr>
+                        <tr>
+                            <td><strong>Thông báo / Bản tin</strong></td>
+                            <td>"What is the main purpose...?"</td>
+                            <td>Soi tiêu đề + các động từ mệnh lệnh (Join, Register, Save...)</td>
+                            <td>"Vote for your destination..." → Mục đích: Khảo sát ý kiến.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Biên lai / Thư xác nhận</strong></td>
+                            <td>"Why was this sent...?"</td>
+                            <td>Đọc dòng mở đầu (lý do) + dòng cuối (yêu cầu hành động)</td>
+                            <td>"Your payment has been received..." → Mục đích: Báo giao dịch thành công.</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- =========== SLIDE 24 =========== -->
+                <div class="slide" data-title="24. Dấu hiệu mục đích (P.2)">
+                    <h2>🎯 Đọc vị mục đích tác giả — Phần 2</h2>
+                    <table>
+                        <tr><th>Loại văn bản</th><th>Câu hỏi thường gặp</th><th>Cách tìm đáp án</th><th>Ví dụ</th></tr>
+                        <tr>
+                            <td><strong>Cổng thông tin / Form đăng nhập</strong></td>
+                            <td>"What information is required?"</td>
+                            <td>Chú ý các ô nhập liệu, nút bấm và hướng dẫn nhỏ</td>
+                            <td>Yêu cầu Username, Password → Mục đích: Đăng nhập hệ thống.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Biển báo / Nội quy</strong></td>
+                            <td>"What are you required to do?"</td>
+                            <td>Tìm các động từ bắt buộc: must, should, have to...</td>
+                            <td>"Hard hats must be worn" → Quy định bảo hộ bắt buộc.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vé / Lịch trình</strong></td>
+                            <td>"What time / platform...?"</td>
+                            <td>Dò thẳng vào cột thời gian hoặc địa điểm</td>
+                            <td>Tìm cột 'Departure' hoặc 'Platform'.</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- =========== SLIDE 25 =========== -->
+                <div class="slide" data-title="25. Chiến thuật làm bài">
+                    <h2>⚡ Chiến thuật "đánh nhanh thắng nhanh"</h2>
+                    <ol style="font-size:17px; line-height:2;">
+                        <li><strong>Đọc tiêu đề và 2 dòng đầu trước.</strong> Chỉ cần vài giây, em đã định vị được loại văn bản và ý đồ chung của tác giả.</li>
+                        <li><strong>Lướt toàn bài trong 10–15 giây.</strong> Mắt quét, không dịch từng chữ — chỉ nhặt các từ khóa và con số nổi bật.</li>
+                        <li><strong>Đọc câu hỏi trước, tìm đáp án sau.</strong> Biết họ hỏi gì rồi mới quay lên tìm — tiết kiệm được rất nhiều thời gian.</li>
+                        <li><strong>Tư duy "phi tuyến tính".</strong> Thông tin trong form, vé, hóa đơn không xếp theo thứ tự từ trên xuống — em phải chịu khó di chuyển mắt linh hoạt.</li>
+                    </ol>
+                </div>
+
+                <!-- =========== SLIDE 26 =========== -->
+                <div class="slide" data-title="26. Thực hành 3: Library Email">
+                    <h2>🏋️ Thực hành 3: Thông báo từ thư viện</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            <strong>To:</strong> All Students<br>
+                            <strong>From:</strong> Campus Library<br><br>
+                            Starting tomorrow, the library's quiet study rooms on the third floor will operate on a first-come, first-served basis instead of requiring online reservations. However, students are strictly limited to two hours per session if other people are waiting outside. Please be mindful of your peers.
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="B">
+                                <p class="mcq-text">What has changed about the library's third-floor study rooms?</p>
+                                <button class="mcq-option" data-opt="A">A) Students can no longer study there for more than two hours.</button>
+                                <button class="mcq-option" data-opt="B">B) Students do not need to book the rooms online anymore.</button>
+                                <button class="mcq-option" data-opt="C">C) The rooms on the third floor are now closed for reservation.</button>
+                                <div class="explanation">
+                                    <strong>✅ Đáp án B — Đúng rồi!</strong><br>
+                                    Cụm từ then chốt: <em>"instead of requiring online reservations"</em> → nghĩa là thư viện không còn yêu cầu đặt phòng online nữa.<br><br>
+                                    <strong>Tại sao A và C sai?</strong><br>
+                                    A: Sinh viên vẫn có thể ngồi quá 2 tiếng <em>nếu không có ai chờ bên ngoài</em>.<br>
+                                    C: Phòng không bị đóng cửa — chỉ đổi từ đặt lịch trước sang ai đến trước dùng trước.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 27 =========== -->
+                <div class="slide" data-title="27. Thực hành 4: Gym Locker">
+                    <h2>🏋️ Thực hành 4: Nội quy phòng Gym</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            <strong>Gym Locker Policy Reminder</strong><br><br>
+                            Gym lockers are available for day-use only. Students must remove all personal belongings and their padlocks by 10:00 PM closing time daily. Any padlocks remaining after closing will be cut off by campus security, and the items inside will be moved to the Lost and Found office.
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="B">
+                                <p class="mcq-text">What are students required to do according to the policy?</p>
+                                <button class="mcq-option" data-opt="A">A) Buy a specific padlock from the campus gym security.</button>
+                                <button class="mcq-option" data-opt="B">B) Avoid leaving their items in the lockers overnight.</button>
+                                <button class="mcq-option" data-opt="C">C) Collect their lost items from the gym before 10:00 PM.</button>
+                                <div class="explanation">
+                                    <strong>✅ Đáp án B — Chính xác!</strong><br>
+                                    "day-use only" + "must remove... by 10:00 PM" → tủ chỉ dùng ban ngày, phải dọn đồ trước khi đóng cửa → không được để đồ qua đêm.<br><br>
+                                    <strong>Bẫy ở đây:</strong><br>
+                                    A: Bài đề cập ổ khóa nhưng không ép sinh viên phải mua từ bảo vệ.<br>
+                                    C: Đồ bị chuyển đi <em>sau</em> 10h tối, không phải trước — logic ngược!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 28 =========== -->
+                <div class="slide" data-title="28. Lý thuyết: Idioms & tiếng lóng">
+                    <h2>🗣️ Giải mã Idioms — Đừng dịch từng chữ!</h2>
+                    <p>Đây là bẫy khiến rất nhiều học sinh Việt Nam mất điểm oan. Khi gặp Idioms (thành ngữ), nếu em dịch từng chữ ra sẽ thấy… vô nghĩa hoàn toàn!</p>
+                    <div class="card card-red">
+                        <h3 style="margin-top:0;">🔑 Nguyên tắc thầy muốn các em nhớ:</h3>
+                        <p style="margin-bottom:0;">Khi gặp một câu dịch ra nghe "kỳ kỳ" hoặc vô lý về mặt nghĩa đen — 90% đó là một Idiom. Lúc đó, <strong>đừng dịch chữ, hãy đoán ý đồ</strong> của người viết qua ngữ cảnh toàn câu.</p>
+                    </div>
+                    <p>Thầy sẽ cho em một bảng Idioms phổ biến nhất trong các đề TOEFL ở hai slide tiếp theo.</p>
+                </div>
+
+                <!-- =========== SLIDE 29 =========== -->
+                <div class="slide" data-title="29. Bảng Idioms (P.1)">
+                    <h2>🎭 Idioms cần thuộc lòng — Phần 1</h2>
+                    <table>
+                        <tr><th>Idiom thực tế</th><th>Dịch nghĩa đen</th><th>Ý nghĩa thực sự</th></tr>
+                        <tr><td class="highlight">"Bite the bullet"</td><td>Cắn viên đạn</td><td>Nhắm mắt chịu đựng, dũng cảm đối mặt với điều khó khăn.</td></tr>
+                        <tr><td class="highlight">"Break a leg"</td><td>Bẻ gãy một cái chân</td><td>Lời chúc may mắn trước khi đi thi hay biểu diễn.</td></tr>
+                        <tr><td class="highlight">"Under the weather"</td><td>Nằm dưới thời tiết</td><td>Cảm thấy mệt mỏi, ốm nhẹ, không khỏe.</td></tr>
+                    </table>
+                </div>
+
+                <!-- =========== SLIDE 30 =========== -->
+                <div class="slide" data-title="30. Bảng Idioms (P.2)">
+                    <h2>🎭 Idioms cần thuộc lòng — Phần 2</h2>
+                    <table>
+                        <tr><th>Idiom thực tế</th><th>Dịch nghĩa đen</th><th>Ý nghĩa thực sự</th></tr>
+                        <tr><td class="highlight">"Spill the beans"</td><td>Làm đổ thúng đậu</td><td>Lỡ miệng tiết lộ bí mật.</td></tr>
+                        <tr><td class="highlight">"Call it a day"</td><td>Gọi nó là một ngày</td><td>Dừng tay thôi, kết thúc công việc hôm nay tại đây.</td></tr>
+                        <tr><td class="highlight">"On the fence"</td><td>Ngồi vắt vẻo trên hàng rào</td><td>Lưỡng lự, chưa đưa ra được quyết định.</td></tr>
+                        <tr><td class="highlight">"Piece of cake"</td><td>Chỉ là một mẩu bánh</td><td>Dễ như ăn kẹo, không có gì khó khăn cả.</td></tr>
+                    </table>
+                </div>
+
+                <!-- =========== SLIDE 31 =========== -->
+                <div class="slide" data-title="31. Xử lý Idioms & chữ viết tắt">
+                    <h2>🧠 Cách học Idioms và xử lý chữ viết tắt</h2>
+                    <ul>
+                        <li><strong>Học theo chủ đề:</strong> Nhóm Idioms theo ngữ cảnh — ví dụ: chủ đề tài chính (<em>on the house</em> = miễn phí), chủ đề giao tiếp xã giao (<em>drop by</em> = ghé thăm).</li>
+                        <li><strong>Câu hỏi em sẽ gặp:</strong> "What does the writer imply by saying...?" — luôn hỏi về hàm ý của Idiom trong ngữ cảnh cụ thể.</li>
+                    </ul>
+                    <div class="card card-purple">
+                        <h3 style="margin-top:0; color:#6d28d9;">📌 Viết tắt "quốc dân" cần nhớ</h3>
+                        <p><strong>ASAP</strong> — As soon as possible (Càng nhanh càng tốt)</p>
+                        <p><strong>FYI</strong> — For your information (Để em biết thêm thông tin)</p>
+                        <p style="margin-bottom:0;"><strong>RSVP</strong> — Phản hồi xác nhận tham dự (từ tiếng Pháp)</p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 32 =========== -->
+                <div class="slide" data-title="32. Thực hành 5: Dr. Evans">
+                    <h2>🏋️ Thực hành 5: Email từ giáo sư</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            <strong>To:</strong> Biology 101 Students<br>
+                            <strong>From:</strong> Dr. Evans<br><br>
+                            I know many of you are stressed about the upcoming final exam. However, cramming all night will not help. Instead of trying to memorize the entire textbook in one sitting, just focus on the core concepts from the lectures. <strong>In the grand scheme of things</strong>, understanding the big picture is much more valuable than memorizing minor details.
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="C">
+                                <p class="mcq-text">What is Dr. Evans' main advice to the students?</p>
+                                <button class="mcq-option" data-opt="A">A) To memorize every single detail in the textbook.</button>
+                                <button class="mcq-option" data-opt="B">B) To stay up late studying the night before the exam.</button>
+                                <button class="mcq-option" data-opt="C">C) To focus on the most important overall concepts.</button>
+                                <div class="explanation">
+                                    <strong>✅ Đáp án C!</strong><br>
+                                    <strong>Giải mã Idiom:</strong> <em>"In the grand scheme of things"</em> = nhìn nhận vấn đề một cách tổng thể, không sa đà vào tiểu tiết.<br><br>
+                                    Giáo sư khuyên sinh viên thay vì học vẹt từng chi tiết nhỏ, hãy nắm vững các khái niệm tổng quan cốt lõi.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 33 =========== -->
+                <div class="slide" data-title="33. Thực hành 6: Volunteer Club">
+                    <h2>🏋️ Thực hành 6: Thông báo tình nguyện</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            <strong>Volunteer Club Announcement</strong><br><br>
+                            We need five more volunteers for this Saturday's community clean-up event. If you are free, please sign up on our website by Friday noon. We are currently shorthanded, so your help would really <strong>hit the spot</strong> and ensure the event runs smoothly. Food and drinks will be provided for everyone.
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="A">
+                                <p class="mcq-text">Why does the club need more volunteers?</p>
+                                <button class="mcq-option" data-opt="A">A) Because they do not have enough people for the event.</button>
+                                <button class="mcq-option" data-opt="B">B) Because the event on Saturday has been canceled.</button>
+                                <button class="mcq-option" data-opt="C">C) Because they need people to buy food and drinks.</button>
+                                <div class="explanation">
+                                    <strong>✅ Đáp án A!</strong><br>
+                                    <strong>Giải mã Idiom:</strong> <em>"Hit the spot"</em> = đáp ứng đúng nhu cầu, "gãi đúng chỗ ngứa".<br><br>
+                                    CLB đang thiếu người ("shorthanded") → sự giúp đỡ của các bạn lúc này là đúng chỗ, đúng lúc nhất.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 34 =========== -->
+                <div class="slide" data-title="34. Thực hành 7: Dorm Life">
+                    <h2>🏋️ Thực hành 7: Tin nhắn bạn cùng phòng</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            Hey Mike,<br><br>
+                            Our landlord just emailed me saying that our water supply will be shut off tomorrow from 9:00 AM to 3:00 PM for maintenance. I wanted to <strong>give you a heads-up</strong> so you can take a shower or fill up some water bottles before they start the work.<br><br>
+                            See you tonight!<br>
+                            Best,<br>
+                            Chris
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="B">
+                                <p class="mcq-text">What is Chris's purpose in writing the email?</p>
+                                <button class="mcq-option" data-opt="A">A) To ask Mike to pay the water bill tomorrow morning.</button>
+                                <button class="mcq-option" data-opt="B">B) To warn Mike in advance about the water interruption.</button>
+                                <button class="mcq-option" data-opt="C">C) To complain to the landlord about the building maintenance.</button>
+                                <div class="explanation">
+                                    <strong>✅ Đáp án B!</strong><br>
+                                    <strong>Giải mã Idiom:</strong> <em>"Give someone a heads-up"</em> = báo trước, cảnh báo để đối phương có sự chuẩn bị.<br><br>
+                                    Chris muốn Mike biết trước về việc cắt nước để còn chủ động tắm và tích nước — đó là mục đích duy nhất của email này.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 35 — DAY 2 END =========== -->
+                <div class="slide" data-title="35. Tổng kết Day 2">
+                    <div class="day-splash">
+                        <div class="day-number">Kết thúc Day 2</div>
+                        <div class="day-title-big" style="color:#166534;">🎉 Tuyệt đỉnh!</div>
+                        <div class="day-subtitle">Em vừa chinh phục xong dạng Read in Daily Life — từ chiến thuật đọc vị mục đích đến giải mã Idioms. Ngày mai là Day 3, thử thách cuối cùng!</div>
+                        <div class="badge-row">
+                            <div class="badge" style="background:var(--green-soft); color:#166534; border-color:#bbf7d0;">✅ Mục đích tác giả</div>
+                            <div class="badge" style="background:var(--green-soft); color:#166534; border-color:#bbf7d0;">✅ Idioms</div>
+                            <div class="badge" style="background:var(--green-soft); color:#166534; border-color:#bbf7d0;">✅ Scanning</div>
+                        </div>
+                        <p style="margin-top:24px; color:var(--text-muted);">Cọ xát thêm tại <strong style="color:var(--red);">englishaidol.com</strong> hoặc <strong style="color:var(--red);">estudyme.com</strong></p>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 36 — DAY 3 SPLASH =========== -->
+                <div class="slide" data-title="36. Bắt đầu Day 3">
+                    <div class="day-splash">
+                        <div class="day-number">Day 3 / 3</div>
+                        <div class="day-title-big">📚 Read an Academic Passage</div>
+                        <div class="day-subtitle">Ngày cuối — và cũng là dạng bài "nặng ký" nhất. Thầy sẽ giúp em hạ gục văn bản học thuật bằng 3 bước: tóm ý chính, tư duy suy luận, và đào sâu chi tiết.</div>
+                        <div class="badge-row">
+                            <div class="badge">🏛️ Main Idea</div>
+                            <div class="badge">🧠 Inference</div>
+                            <div class="badge">📖 Vocabulary</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 37 =========== -->
+                <div class="slide" data-title="37. Tìm chủ đề & cấu trúc bài">
+                    <h2>🏛️ Bí kíp tìm chủ đề & phân tích cấu trúc</h2>
+                    <p>Đặc điểm quan trọng nhất của dạng này: <strong>mỗi đoạn văn chỉ có MỘT ý chính duy nhất</strong>. Biết điều này, em sẽ không bị lạc trong mê trận ngôn từ học thuật.</p>
+                    <table>
+                        <tr><th>Kỹ thuật</th><th>Cách làm</th><th>Ví dụ</th></tr>
+                        <tr>
+                            <td><strong>Đọc câu mở đầu 📖</strong></td>
+                            <td>Topic sentence thường gói gọn toàn bộ ý của đoạn.</td>
+                            <td>"AI is reshaping the workforce." → Chủ đề: Tác động của AI lên lao động.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Săn từ khóa lặp lại 🔍</strong></td>
+                            <td>Từ xuất hiện ≥ 2 lần = trọng tâm của đoạn.</td>
+                            <td>Thấy 'automation' lặp nhiều lần → Chủ đề về tự động hóa.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Đọc liên từ cấu trúc 🔗</strong></td>
+                            <td>Liên từ tiết lộ bố cục: so sánh, nhân quả, hay phản biện.</td>
+                            <td>"consequently, therefore" → Bố cục Nguyên nhân - Kết quả.</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- =========== SLIDE 38 =========== -->
+                <div class="slide" data-title="38. Phân biệt ý chính & chi tiết">
+                    <h2>📝 Phân biệt Ý Chính và Chi Tiết</h2>
+                    <div class="card card-blue">
+                        <h3 style="margin-top:0;">Luyện tập tóm ý trong 1 câu</h3>
+                        <p style="margin-bottom:0;">Sau khi đọc xong đoạn, thử diễn đạt lại nội dung bằng <strong>một câu tiếng Việt</strong>. Nếu làm được điều này, em đã thực sự hiểu bài — không phải chỉ đọc qua!</p>
+                    </div>
+                    <div class="card card-purple">
+                        <h3 style="margin-top:0; color:#6d28d9;">Ý chính vs. Chi tiết — Khác nhau thế nào?</h3>
+                        <p><strong>Ý chính (Main Idea):</strong> Luận điểm lớn bao trùm cả đoạn. <em>VD: "AI gây nguy cơ mất việc làm."</em></p>
+                        <p style="margin-bottom:0;"><strong>Chi tiết (Detail):</strong> Số liệu, bằng chứng, ví dụ để chứng minh cho luận điểm. <em>VD: "30% công việc hành chính sẽ bị tự động hóa vào 2030."</em></p>
+                    </div>
+                    <p class="highlight">💡 Mẹo nhỏ: Nếu câu thứ 2 của đoạn bắt đầu bằng "However" hay "Although" — ý chính thực sự nằm ở vế đối lập đó!</p>
+                </div>
+
+                <!-- =========== SLIDE 39 =========== -->
+                <div class="slide" data-title="39. Phương pháp giải từng loại câu">
+                    <h2>🔬 Gỡ rối các dạng câu hỏi</h2>
+                    <table>
+                        <tr><th>Dạng câu hỏi</th><th>Cách tiếp cận</th><th style="color:#c0392b;">Bẫy cần tránh ⚠️</th></tr>
+                        <tr>
+                            <td><strong>Suy luận (Inference)</strong><br><em>"What can be inferred?"</em></td>
+                            <td>Tổng hợp các dữ kiện gián tiếp trong bài để rút ra kết luận logic.</td>
+                            <td style="color:#be123c;">Không chọn đáp án chép y nguyên văn bài — câu suy luận không bao giờ lộ đáp án trực tiếp.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chi tiết (Detail)</strong><br><em>"According to..."</em></td>
+                            <td>Tìm từ khóa trong câu hỏi → quay lại bài tìm đoạn tương ứng được viết lại khác đi (Paraphrase).</td>
+                            <td style="color:#be123c;">Chọn đáp án "nghe có vẻ đúng về lý thuyết" nhưng bài đọc không hề nhắc đến.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Từ vựng (Vocabulary)</strong><br><em>"Closest in meaning to..."</em></td>
+                            <td>Đọc cả câu chứa từ đó + câu trước/sau để xác định nghĩa theo ngữ cảnh.</td>
+                            <td style="color:#be123c;">Vội vàng chọn nghĩa quen thuộc nhất của từ mà bỏ qua ngữ cảnh đặc thù.</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- =========== SLIDE 40 =========== -->
+                <div class="slide" data-title="40. Lộ trình luyện tập">
+                    <h2>📅 Lộ trình mài dũa kỹ năng hằng ngày</h2>
+                    <ul style="font-size:17px; line-height:2.1;">
+                        <li><strong>Mỗi ngày đọc ít nhất 1 đoạn học thuật.</strong> Sau đó tự đặt câu hỏi: <em>"Tác giả muốn nói gì?"</em> và <em>"Chi tiết nào chứng minh điều đó?"</em></li>
+                        <li><strong>Luyện Paraphrase.</strong> Đọc một câu tiếng Anh khó → gập sách lại → viết lại câu đó bằng từ của mình, giữ nguyên nghĩa. Cách này giúp em nhận ra đáp án Paraphrase trong đề rất nhanh.</li>
+                        <li><strong>Kết hợp Scanning + Skimming.</strong> Scanning = quét mắt tìm từ khóa cụ thể. Skimming = đọc lướt nhanh để chộp ý chính. Hai kỹ năng này bổ trợ nhau hoàn hảo!</li>
+                    </ul>
+                </div>
+
+                <!-- =========== SLIDE 41 =========== -->
+                <div class="slide" data-title="41. Thực hành 8: Sinh học (Q1)">
+                    <h2>🦠 Thực hành 8: Sinh học — Keystone Species (C1)</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            In any given ecosystem, all species are interconnected, but some play a far more critical role than others in maintaining the community's structure. These are known as keystone species. The term, borrowed from architecture, refers to the wedge-shaped stone at the top of an arch that locks all the other stones in place. If the keystone is removed, the entire arch collapses. Similarly, the removal of a keystone species can trigger a domino effect, drastically altering the ecosystem or even causing it to fail entirely.<br><br>
+                            A classic example of a keystone species is the sea otter in the kelp forest ecosystems of the Pacific Northwest. Sea otters prey on sea urchins, which are <strong>voracious</strong> herbivores that consume kelp. When sea otter populations declined sharply due to commercial hunting in the 19th century, the sea urchin population exploded. Unchecked, the urchins grazed the kelp forests down to barren rock, a state known as "urchin barrens." Because kelp forests provide critical habitat and food for dozens of other marine species, from fish to seabirds, the disappearance of the kelp led to a catastrophic collapse of local biodiversity. When otters were later reintroduced and protected, they suppressed the urchin population, allowing the kelp forests — and the entire ecosystem — to recover, demonstrating the profound influence a single species can wield.
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="B">
+                                <p class="mcq-text">1. The word "voracious" in the passage is closest in meaning to:</p>
+                                <button class="mcq-option" data-opt="A">A. aggressive</button>
+                                <button class="mcq-option" data-opt="B">B. insatiable</button>
+                                <button class="mcq-option" data-opt="C">C. competitive</button>
+                                <button class="mcq-option" data-opt="D">D. destructive</button>
+                                <div class="explanation"><strong>✅ Đáp án B!</strong><br>"Voracious" mang nghĩa phàm ăn, tiêu thụ số lượng lớn không biết no. Trong ngữ cảnh này, urchins ăn kelp rất nhiều — từ gần nghĩa nhất là "insatiable" (không thể thỏa mãn, không biết no).</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 42 =========== -->
+                <div class="slide" data-title="42. Thực hành 8: Sinh học (Q2)">
+                    <h2>🦠 Thực hành 8: Sinh học — Keystone Species (C2)</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            In any given ecosystem, all species are interconnected, but some play a far more critical role than others in maintaining the community's structure. These are known as keystone species. The term, borrowed from architecture, refers to the wedge-shaped stone at the top of an arch that locks all the other stones in place. If the keystone is removed, the entire arch collapses. Similarly, the removal of a keystone species can trigger a domino effect, drastically altering the ecosystem or even causing it to fail entirely.<br><br>
+                            A classic example of a keystone species is the sea otter in the kelp forest ecosystems of the Pacific Northwest. Sea otters prey on sea urchins, which are <strong>voracious</strong> herbivores that consume kelp. When sea otter populations declined sharply due to commercial hunting in the 19th century, the sea urchin population exploded. Unchecked, the urchins grazed the kelp forests down to barren rock, a state known as "urchin barrens." Because kelp forests provide critical habitat and food for dozens of other marine species, from fish to seabirds, the disappearance of the kelp led to a catastrophic collapse of local biodiversity. When otters were later reintroduced and protected, they suppressed the urchin population, allowing the kelp forests — and the entire ecosystem — to recover, demonstrating the profound influence a single species can wield.
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="B">
+                                <p class="mcq-text">2. Which best summarizes the effect of removing a keystone species, according to the passage?</p>
+                                <button class="mcq-option" data-opt="A">A. Ecosystems can usually adapt to the removal of any single species.</button>
+                                <button class="mcq-option" data-opt="B">B. Its removal can cause severe changes or even a total collapse of the ecosystem.</button>
+                                <button class="mcq-option" data-opt="C">C. Ecosystems are resilient enough to handle the removal of most species except the keystone.</button>
+                                <button class="mcq-option" data-opt="D">D. Removing a species slightly alters many interconnected ones.</button>
+                                <div class="explanation"><strong>✅ Đáp án B!</strong><br>Câu B là bản "Paraphrase" hoàn hảo: "severe changes" = "drastically altering" và "total collapse" = "fail entirely". Đây chính xác là những gì bài đọc mô tả!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 43 =========== -->
+                <div class="slide" data-title="43. Thực hành 8: Sinh học (Q3)">
+                    <h2>🦠 Thực hành 8: Sinh học — Keystone Species (C3)</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            In any given ecosystem, all species are interconnected, but some play a far more critical role than others in maintaining the community's structure. These are known as keystone species. The term, borrowed from architecture, refers to the wedge-shaped stone at the top of an arch that locks all the other stones in place. If the keystone is removed, the entire arch collapses. Similarly, the removal of a keystone species can trigger a domino effect, drastically altering the ecosystem or even causing it to fail entirely.<br><br>
+                            A classic example of a keystone species is the sea otter in the kelp forest ecosystems of the Pacific Northwest. Sea otters prey on sea urchins, which are <strong>voracious</strong> herbivores that consume kelp. When sea otter populations declined sharply due to commercial hunting in the 19th century, the sea urchin population exploded. Unchecked, the urchins grazed the kelp forests down to barren rock, a state known as "urchin barrens." Because kelp forests provide critical habitat and food for dozens of other marine species, from fish to seabirds, the disappearance of the kelp led to a catastrophic collapse of local biodiversity. When otters were later reintroduced and protected, they suppressed the urchin population, allowing the kelp forests — and the entire ecosystem — to recover, demonstrating the profound influence a single species can wield.
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="C">
+                                <p class="mcq-text">3. What can be inferred about the relationship between sea otters and kelp forests?</p>
+                                <button class="mcq-option" data-opt="A">A. Sea otters feed directly on kelp to survive.</button>
+                                <button class="mcq-option" data-opt="B">B. Kelp forests exist independently of any animal population.</button>
+                                <button class="mcq-option" data-opt="C">C. Sea otters help protect kelp forests by controlling sea urchin populations.</button>
+                                <button class="mcq-option" data-opt="D">D. Sea urchins and sea otters compete for the same food source.</button>
+                                <div class="explanation"><strong>✅ Đáp án C!</strong><br>Đây là câu suy luận: bài không nói thẳng "sea otters protect kelp forests" nhưng từ chuỗi sự kiện (otters → eat urchins → urchins don't destroy kelp → kelp thrives), ta suy ra được điều đó. Đây chính là loại câu inference!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 44 =========== -->
+                <div class="slide" data-title="44. Thực hành 9: Lịch sử (Q1)">
+                    <h2>🏛️ Thực hành 9: Lịch sử — Roman Architecture (C1)</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            The architectural achievements of the ancient Romans left an <strong>indelible</strong> mark on Western civilization, largely due to their innovative engineering and mastery of new materials. While the Greeks favored post-and-beam construction — which relied on vertical columns supporting horizontal beams — the Romans perfected the arch. This structural innovation allowed them to bridge much wider spans and support significantly heavier loads. By rotating the arch 360 degrees, Roman engineers also developed the dome, a feature famously manifested in the Pantheon.<br><br>
+
+Crucial to these architectural feats was the invention of Roman concrete (opus caementicium). Unlike modern concrete, the Roman variety incorporated volcanic ash, which triggered a chemical reaction that allowed the material to harden even underwater. This unique property enabled the construction of massive harbors, aqueducts, and public baths across the empire. Furthermore, concrete was far cheaper and more flexible than carved stone, allowing the Romans to build on a grand, unprecedented scale. The durability of this material is evidenced by the fact that many Roman structures still stand today...
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="A">
+                                <p class="mcq-text">1. Why does the author mention "post-and-beam construction" in the passage?</p>
+                                <button class="mcq-option" data-opt="A">A. To contrast Greek architectural methods with Roman innovations.</button>
+                                <button class="mcq-option" data-opt="B">B. To argue that Roman architecture was entirely copied from the Greeks.</button>
+                                <button class="mcq-option" data-opt="C">C. To explain why Roman buildings were prone to collapsing.</button>
+                                <button class="mcq-option" data-opt="D">D. To illustrate the primary use of vertical columns in Roman domes.</button>
+                                <div class="explanation"><strong>✅ Đáp án A!</strong><br>Tác giả dùng kỹ thuật đòn bẩy — nhắc đến kiến trúc Hy Lạp (post-and-beam) để làm nền tương phản, từ đó làm nổi bật sự đột phá của người La Mã với cấu trúc vòm (arch). Đây là dạng "Why does the author mention X?" rất phổ biến!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 45 =========== -->
+                <div class="slide" data-title="45. Thực hành 9: Lịch sử (Q2)">
+                    <h2>🏛️ Thực hành 9: Lịch sử — Roman Architecture (C2)</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            The architectural achievements of the ancient Romans left an <strong>indelible</strong> mark on Western civilization, largely due to their innovative engineering and mastery of new materials. While the Greeks favored post-and-beam construction — which relied on vertical columns supporting horizontal beams — the Romans perfected the arch. This structural innovation allowed them to bridge much wider spans and support significantly heavier loads. By rotating the arch 360 degrees, Roman engineers also developed the dome, a feature famously manifested in the Pantheon.<br><br>
+
+Crucial to these architectural feats was the invention of Roman concrete (opus caementicium). Unlike modern concrete, the Roman variety incorporated volcanic ash, which triggered a chemical reaction that allowed the material to harden even underwater. This unique property enabled the construction of massive harbors, aqueducts, and public baths across the empire. Furthermore, concrete was far cheaper and more flexible than carved stone, allowing the Romans to build on a grand, unprecedented scale. The durability of this material is evidenced by the fact that many Roman structures still stand today...
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="B">
+                                <p class="mcq-text">2. According to the passage, Roman concrete was unique because it:</p>
+                                <button class="mcq-option" data-opt="A">A. Was made entirely from expensive carved stone.</button>
+                                <button class="mcq-option" data-opt="B">B. Contained volcanic ash that allowed it to cure underwater.</button>
+                                <button class="mcq-option" data-opt="C">C. Required horizontal beams to support its massive weight.</button>
+                                <button class="mcq-option" data-opt="D">D. Was used exclusively for religious temples like the Pantheon.</button>
+                                <div class="explanation"><strong>✅ Đáp án B!</strong><br>Câu trả lời nằm trực tiếp trong bài: "incorporated volcanic ash... allowed the material to harden even underwater." Đây là câu detail — chỉ cần scan đúng từ khóa "volcanic ash" là tìm ra ngay.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 46 =========== -->
+                <div class="slide" data-title="46. Thực hành 9: Lịch sử (Q3)">
+                    <h2>🏛️ Thực hành 9: Lịch sử — Roman Architecture (C3)</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            The architectural achievements of the ancient Romans left an <strong>indelible</strong> mark on Western civilization, largely due to their innovative engineering and mastery of new materials. While the Greeks favored post-and-beam construction — which relied on vertical columns supporting horizontal beams — the Romans perfected the arch. This structural innovation allowed them to bridge much wider spans and support significantly heavier loads. By rotating the arch 360 degrees, Roman engineers also developed the dome, a feature famously manifested in the Pantheon.<br><br>
+
+Crucial to these architectural feats was the invention of Roman concrete (opus caementicium). Unlike modern concrete, the Roman variety incorporated volcanic ash, which triggered a chemical reaction that allowed the material to harden even underwater. This unique property enabled the construction of massive harbors, aqueducts, and public baths across the empire. Furthermore, concrete was far cheaper and more flexible than carved stone, allowing the Romans to build on a grand, unprecedented scale. The durability of this material is evidenced by the fact that many Roman structures still stand today...
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="B">
+                                <p class="mcq-text">3. The word "indelible" in the passage is closest in meaning to:</p>
+                                <button class="mcq-option" data-opt="A">A. temporary</button>
+                                <button class="mcq-option" data-opt="B">B. permanent</button>
+                                <button class="mcq-option" data-opt="C">C. questionable</button>
+                                <button class="mcq-option" data-opt="D">D. artistic</button>
+                                <div class="explanation"><strong>✅ Đáp án B!</strong><br>Ngữ cảnh nói về dấu ấn của người La Mã để lại "trên văn minh phương Tây" — và cuối bài có nhắc "many Roman structures still stand today". Đây là dấu ấn tồn tại hàng ngàn năm → "indelible" = không thể xóa mờ → gần nghĩa nhất với "permanent" (vĩnh cửu).</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 47 =========== -->
+                <div class="slide" data-title="47. Thực hành 10: Tâm lý học (Q1)">
+                    <h2>🧠 Thực hành 10: Tâm lý học — Confirmation Bias (C1)</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            Confirmation bias is a pervasive cognitive bias that profoundly shapes human decision-making and belief systems. It refers to the tendency of individuals to search for, interpret, and recall information in a way that confirms their preexisting beliefs or hypotheses, while systematically ignoring or undervaluing contradictory evidence. This phenomenon occurs automatically and often unconsciously, serving as a mental shortcut to reduce cognitive dissonance — the psychological discomfort a person feels when confronted with information that conflicts with their current worldview.<br><br>
+                            In the modern digital age, confirmation bias has been heavily amplified by internet algorithms. Social media platforms are designed to maximize user engagement by presenting content that aligns with users' past behavior and preferences. This creates "echo chambers," environments where individuals are exposed only to opinions that mirror their own. Over time, this constant reinforcement strengthens biases, polarizes communities, and erodes public trust in objective facts. For instance, in scientific communication, individuals influenced by confirmation bias may cherry-pick single anomalies in a study to reject an entire body of overwhelming scientific consensus. Overcoming this bias requires conscious effort...
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="B">
+                                <p class="mcq-text">1. According to paragraph 1, why do people exhibit confirmation bias?</p>
+                                <button class="mcq-option" data-opt="A">A. To deliberately mislead others about their true beliefs.</button>
+                                <button class="mcq-option" data-opt="B">B. To avoid the mental discomfort caused by conflicting information.</button>
+                                <button class="mcq-option" data-opt="C">C. To improve their memory retention of complex scientific data.</button>
+                                <button class="mcq-option" data-opt="D">D. To challenge the prevailing cultural norms of their society.</button>
+                                <div class="explanation"><strong>✅ Đáp án B!</strong><br>Bài nêu rõ: thiên kiến này đóng vai trò như "mental shortcut to reduce cognitive dissonance" — tức là lối tắt tư duy giúp con người tránh khỏi cảm giác khó chịu khi gặp thông tin trái chiều. Đáp án B paraphrase chính xác điều này!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 48 =========== -->
+                <div class="slide" data-title="48. Thực hành 10: Tâm lý học (Q2)">
+                    <h2>🧠 Thực hành 10: Tâm lý học — Confirmation Bias (C2)</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            Confirmation bias is a pervasive cognitive bias that profoundly shapes human decision-making and belief systems. It refers to the tendency of individuals to search for, interpret, and recall information in a way that confirms their preexisting beliefs or hypotheses, while systematically ignoring or undervaluing contradictory evidence. This phenomenon occurs automatically and often unconsciously, serving as a mental shortcut to reduce cognitive dissonance — the psychological discomfort a person feels when confronted with information that conflicts with their current worldview.<br><br>
+                            In the modern digital age, confirmation bias has been heavily amplified by internet algorithms. Social media platforms are designed to maximize user engagement by presenting content that aligns with users' past behavior and preferences. This creates "echo chambers," environments where individuals are exposed only to opinions that mirror their own. Over time, this constant reinforcement strengthens biases, polarizes communities, and erodes public trust in objective facts. For instance, in scientific communication, individuals influenced by confirmation bias may cherry-pick single anomalies in a study to reject an entire body of overwhelming scientific consensus. Overcoming this bias requires conscious effort...
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="C">
+                                <p class="mcq-text">2. The word "amplified" in the passage is closest in meaning to:</p>
+                                <button class="mcq-option" data-opt="A">A. weakened</button>
+                                <button class="mcq-option" data-opt="B">B. justified</button>
+                                <button class="mcq-option" data-opt="C">C. intensified</button>
+                                <button class="mcq-option" data-opt="D">D. discovered</button>
+                                <div class="explanation"><strong>✅ Đáp án C!</strong><br>Ngữ cảnh nói rằng các thuật toán internet đã làm điều gì đó "nặng nề hơn" với thiên kiến xác nhận — và sau đó bài mô tả hậu quả tiêu cực ngày càng tệ hơn. Vậy "amplified" = làm khuếch đại, làm tăng cường → gần nghĩa nhất với "intensified".</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 49 =========== -->
+                <div class="slide" data-title="49. Thực hành 10: Tâm lý học (Q3)">
+                    <h2>🧠 Thực hành 10: Tâm lý học — Confirmation Bias (C3)</h2>
+                    <div class="two-col">
+                        <div class="col-passage">
+                            Confirmation bias is a pervasive cognitive bias that profoundly shapes human decision-making and belief systems. It refers to the tendency of individuals to search for, interpret, and recall information in a way that confirms their preexisting beliefs or hypotheses, while systematically ignoring or undervaluing contradictory evidence. This phenomenon occurs automatically and often unconsciously, serving as a mental shortcut to reduce cognitive dissonance — the psychological discomfort a person feels when confronted with information that conflicts with their current worldview.<br><br>
+                            In the modern digital age, confirmation bias has been heavily <strong>amplified</strong> by internet algorithms. Social media platforms are designed to maximize user engagement by presenting content that aligns with users' past behavior and preferences. This creates "echo chambers," environments where individuals are exposed only to opinions that mirror their own. Over time, this constant reinforcement strengthens biases, polarizes communities, and erodes public trust in objective facts. For instance, in scientific communication, individuals influenced by confirmation bias may cherry-pick single anomalies in a study to reject an entire body of overwhelming scientific consensus. Overcoming this bias requires conscious effort...
+                        </div>
+                        <div class="col-question">
+                            <div class="mcq-question" data-correct="C">
+                                <p class="mcq-text">3. Which of the following can be inferred about "echo chambers" from paragraph 2?</p>
+                                <button class="mcq-option" data-opt="A">A. They encourage users to change their minds frequently.</button>
+                                <button class="mcq-option" data-opt="B">B. They are physical spaces where scientists debate consensus.</button>
+                                <button class="mcq-option" data-opt="C">C. They make it more difficult for people to encounter diverse viewpoints.</button>
+                                <button class="mcq-option" data-opt="D">D. They decrease user engagement on major social media platforms.</button>
+                                <div class="explanation"><strong>✅ Đáp án C!</strong><br>Bài định nghĩa echo chambers là nơi người dùng CHỈ tiếp xúc với ý kiến phản chiếu quan điểm của họ. Suy luận logic: nếu chỉ được tiếp xúc với một luồng quan điểm → sẽ khó gặp được các quan điểm đa dạng, trái chiều → C là đáp án suy luận chính xác!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========== SLIDE 50 — FINAL =========== -->
+                <div class="slide" data-title="50. Hoàn thành khóa học!">
+                    <div class="day-splash">
+                        <div class="day-number">Hoàn thành khóa học</div>
+                        <div class="congrats-big">🏆 Chúc mừng em!</div>
+                        <div style="font-size:20px; font-weight:700; color:#1e293b; margin-bottom:10px;">Đã hoàn thành lộ trình Master TOEFL Reading in 3 Days</div>
+                        <div class="day-subtitle">
+                            Bài thi TOEFL Reading 2026 là cuộc đua của <strong>tốc độ quét ý</strong> và <strong>độ nhạy bén từ vựng</strong>. Em đã trang bị đủ cả hai rồi đó.<br><br>
+                            Thầy biết rằng thành công không đến từ phép màu — nó đến từ sự kiên trì luyện tập mỗi ngày. Hãy tiếp tục!
+                        </div>
+                        <div class="badge-row">
+                            <div class="badge" style="background:var(--green-soft); color:#166534; border-color:#bbf7d0;">✅ Day 1: Complete the Words</div>
+                            <div class="badge" style="background:var(--green-soft); color:#166534; border-color:#bbf7d0;">✅ Day 2: Daily Life</div>
+                            <div class="badge" style="background:var(--green-soft); color:#166534; border-color:#bbf7d0;">✅ Day 3: Academic</div>
+                        </div>
+                        <p style="margin-top:28px; color:var(--text-muted);">Tiếp tục luyện tập miễn phí tại <strong style="color:var(--red);">englishaidol.com</strong> và <strong style="color:var(--red);">estudyme.com</strong></p>
+                    </div>
+                </div>
+
+            </div><!-- end slides-container -->
+
+            <!-- Nav -->
+            <div class="nav-buttons">
+                <button class="nav-btn" id="btn-prev" onclick="changeSlide(-1)">← Quay lại</button>
+                <span class="progress-text" id="progress-text">1 / 50</span>
+                <button class="nav-btn" id="btn-next" onclick="changeSlide(1)">Tiếp theo →</button>
+            </div>
+        </div><!-- end slide-wrapper -->
+    </main>
+
+    <!-- Guide Modal -->
+    <div id="guide-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGuide()">&times;</span>
+            <h2>📖 Hướng dẫn sử dụng</h2>
+            <div class="guide-item">
+                <div class="guide-icon">🧭</div>
+                <div class="guide-text"><strong>Di chuyển giữa các slide:</strong> Nhấn nút <em>Quay lại / Tiếp theo</em> ở dưới cùng, hoặc nhấp thẳng vào mục tiêu trong danh sách bên trái.</div>
+            </div>
+            <div class="guide-item">
+                <div class="guide-icon">🧩</div>
+                <div class="guide-text"><strong>Bài tập điền từ:</strong> Nhấp vào ô màu cam đứt nét để lật mở đáp án và đọc phân tích chi tiết bên dưới.</div>
+            </div>
+            <div class="guide-item">
+                <div class="guide-icon">✅</div>
+                <div class="guide-text"><strong>Trắc nghiệm:</strong> Nhấp vào đáp án em chọn. Đúng → đáp án chuyển <strong style="color:#166534;">xanh lá</strong> và hiện phân tích. Sai → đáp án chuyển <strong style="color:#be123c;">đỏ</strong> để cảnh báo.</div>
+            </div>
+            <button class="btn-confirm" onclick="closeGuide()">Đã hiểu, bắt đầu thôi!</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const tocList = document.getElementById('toc-list');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+        const progressText = document.getElementById('progress-text');
+        const progressFill = document.getElementById('progress-fill');
+        const slideContainer = document.getElementById('slides-container');
+
+        // Day section groupings
+        const daySections = {
+            0: '📌 Giới thiệu',
+            10: '🌅 Day 1 — Complete the Words',
+            20: '🌅 Day 2 — Read in Daily Life',
+            35: '🌅 Day 3 — Academic Passage',
+            49: '🏆 Hoàn thành'
+        };
+
+        function init() {
+            slides.forEach((slide, index) => {
+                if (daySections[index] !== undefined) {
+                    const label = document.createElement('li');
+                    label.className = 'toc-section-label';
+                    label.textContent = daySections[index];
+                    tocList.appendChild(label);
+                }
+                const title = slide.getAttribute('data-title');
+                const li = document.createElement('li');
+                li.className = 'toc-item';
+                li.textContent = title;
+                li.title = title;
+                li.onclick = () => goToSlide(index);
+                tocList.appendChild(li);
+            });
+            updateUI();
+        }
+
+        function updateUI() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+
+            const tocItems = document.querySelectorAll('.toc-item');
+            tocItems.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlide);
+                if (index === currentSlide) {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+
+            btnPrev.disabled = currentSlide === 0;
+            btnNext.disabled = currentSlide === slides.length - 1;
+            progressText.textContent = `${currentSlide + 1} / ${slides.length}`;
+            progressFill.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+            slideContainer.scrollTop = 0;
+        }
+
+        function changeSlide(dir) {
+            currentSlide = Math.max(0, Math.min(slides.length - 1, currentSlide + dir));
+            updateUI();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateUI();
+        }
+
+        // MCQ interactions
+        document.querySelectorAll('.mcq-option').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const parent = this.closest('.mcq-question');
+                if (parent.querySelector('.mcq-option:disabled')) return;
+                const correct = parent.getAttribute('data-correct');
+                const selected = this.getAttribute('data-opt');
+                if (selected === correct) {
+                    this.classList.add('correct');
+                    parent.querySelector('.explanation').classList.add('show');
+                    parent.querySelectorAll('.mcq-option').forEach(b => b.disabled = true);
+                } else {
+                    this.classList.add('wrong');
+                }
+            });
+        });
+
+        // Blank reveal
+        function revealBlank(id, word, event) {
+            const exp = document.getElementById(id + '-exp');
+            if (exp) exp.classList.add('show');
+            event.target.classList.add('revealed');
+            event.target.textContent = word;
+        }
+
+        function openGuide() { document.getElementById('guide-modal').style.display = 'flex'; }
+        function closeGuide() { document.getElementById('guide-modal').style.display = 'none'; }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+        });
+
+        window.onload = init;
+    </script>
+</body>
+</html>
